@@ -1,0 +1,55 @@
+﻿.luxury-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 27px;
+  height: 27px;
+  border: 1px solid #d4af65;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    opacity 0.2s ease;
+  will-change: transform;
+}
+body:has(.luxury-cursor) .luxury-cursor {
+  opacity: 1;
+}
+.luxury-cursor span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  background: #d4af65;
+  transform: translate(-50%, -50%);
+}
+.luxury-cursor.is-hovering {
+  width: 43px;
+  height: 43px;
+  background: rgba(212, 175, 101, 0.10);
+  border-color: #f1d69a;
+}
+@media (pointer: fine) {
+  body:has(.luxury-cursor) {
+    cursor: none;
+  }
+  body:has(.luxury-cursor) a,
+  body:has(.luxury-cursor) button,
+  body:has(.luxury-cursor) input,
+  body:has(.luxury-cursor) textarea,
+  body:has(.luxury-cursor) select {
+    cursor: none;
+  }
+}
+@media (pointer: coarse) {
+  .luxury-cursor {
+    display: none;
+  }
+}

@@ -1,0 +1,304 @@
+﻿import React from "react";
+import { Link } from "react-router-dom";
+import "./Services.css";
+const services = [
+  {
+    number: "01",
+    title: "Residential Interior Design",
+    category: "YOUR PERSONAL SANCTUARY",
+    description:
+      "Beautifully considered homes that balance comfort, personality, and timeless design.",
+    features: ["Living spaces", "Complete home interiors", "Custom styling"],
+    image: "/images/service-1.jpg",
+    alt: "Elegant contemporary residential living room",
+  },
+  {
+    number: "02",
+    title: "Commercial Interior Design",
+    category: "DESIGNED TO INSPIRE",
+    description:
+      "Purposeful commercial environments that reflect your brand and elevate every experience.",
+    features: ["Office interiors", "Retail spaces", "Business environments"],
+    image: "/images/service-2.jpg",
+    alt: "Contemporary commercial workspace",
+  },
+  {
+    number: "03",
+    title: "Modular Kitchen Design",
+    category: "THE HEART OF YOUR HOME",
+    description:
+      "Smart layouts, beautiful finishes, and practical storage for everyday cooking and living.",
+    features: ["Modern cabinetry", "Smart storage", "Material selection"],
+    image: "/images/service-3.jpg",
+    alt: "Modern kitchen and architectural interiors",
+  },
+  {
+    number: "04",
+    title: "Bedroom Interiors",
+    category: "COMFORT MEETS ELEGANCE",
+    description:
+      "Restful, personal retreats shaped by soothing colours, thoughtful lighting, and refined details.",
+    features: ["Wardrobe design", "Lighting concepts", "Space styling"],
+    image: "/images/service-4.jpg",
+    alt: "Warm and elegant bedroom interior",
+  },
+  {
+    number: "05",
+    title: "Space Planning",
+    category: "EVERY INCH, REIMAGINED",
+    description:
+      "Make every square foot work beautifully with intelligent layouts and seamless movement.",
+    features: ["Layout planning", "Furniture placement", "Space optimisation"],
+    image: "/images/service-5.jpg",
+    alt: "Thoughtfully planned contemporary interior",
+  },
+  {
+    number: "06",
+    title: "Renovation & Makeovers",
+    category: "A FRESH PERSPECTIVE",
+    description:
+      "Give existing spaces a thoughtful new life through considered updates and beautiful finishes.",
+    features: ["Interior refreshes", "Finish upgrades", "Design transformations"],
+    image: "/images/service-6.jpg",
+    alt: "Refined renovated home interior",
+  },
+];
+const fallbackImages = [
+  "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1100&q=85",
+  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=85",
+  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=85",
+  "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1100&q=85",
+  "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=85",
+  "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1100&q=85",
+];const gallery = [
+  {
+    title: "Quiet Luxury",
+    category: "LIVING SPACES",
+    image:
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85",
+  },
+  {
+    title: "Modern Warmth",
+    category: "MATERIAL PALETTE",
+    image:
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85",
+  },
+  {
+    title: "Timeless Details",
+    category: "DESIGN INSPIRATION",
+    image:
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=85",
+  },
+];
+export default function Services() {
+  return (
+    <main className="services-page">
+      <div className="services-topline">
+        <span>THOUGHTFUL SPACES</span>
+        <i />
+        <span>TIMELESS DESIGN</span>
+        <i />
+        <span>SB INTERIORS</span>
+      </div>
+      <header className="services-header">
+        <Link to="/" className="services-brand" aria-label="SB Interiors Home">
+          <img
+            src="/sb-logo.jpeg"
+            alt="SB Interiors"
+            className="services-brand-logo"
+          />
+          <span className="services-brand-text">
+            <strong>SB INTERIORS</strong>
+            <small>DESIGN YOUR DREAM</small>
+          </span>
+        </Link>
+        <nav className="services-nav" aria-label="Main navigation">
+          <Link to="/">Home</Link>
+          <Link to="/services" className="services-nav-active">
+            Services
+          </Link>
+          <Link to="/#about">About</Link>
+          <Link to="/#projects">Projects</Link>
+          <Link to="/#contact" className="services-nav-cta">
+            Let's Talk <span>↗</span>
+          </Link>
+        </nav>
+      </header>
+      <section className="services-hero">
+        <div className="services-hero-glow" />
+        <div className="services-hero-copy">
+          <p className="services-eyebrow">
+            <span /> OUR EXPERTISE
+          </p>
+          <h1>
+            Spaces made
+            <br />
+            to <em>feel like you.</em>
+          </h1>
+          <p className="services-hero-description">
+            Considered interiors. Meaningful details. Beautifully functional
+            spaces designed around the way you live and work.
+          </p>
+          <div className="services-hero-actions">
+            <a href="#our-services" className="services-button services-button-gold">
+              Explore Our Services <span>↘</span>
+            </a>
+            <Link to="/#contact" className="services-text-link">
+              Start a conversation ↗
+            </Link>
+          </div>
+          <div className="services-hero-note">
+            <span className="services-note-line" />
+            <span>DESIGN WITH PURPOSE. LIVE WITH EASE.</span>
+          </div>
+        </div>
+        <div className="services-hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=90"
+            alt="Elegant contemporary interior with warm natural finishes"
+          />
+          <div className="services-image-shade" />
+          <div className="services-image-caption">
+            <span>01 / THE SIGNATURE COLLECTION</span>
+            <span>Form · Function · Feeling</span>
+          </div>
+          <div className="services-image-seal"><img src="/sb-logo.jpeg" alt="SB Interiors logo" /></div>
+          <div className="services-image-frame" />
+        </div>
+        
+      </section>
+      <section className="services-intro">
+        <p className="services-eyebrow">DESIGNED AROUND YOU</p>
+        <h2>
+          Every space has a story.
+          <br />
+          <em>Let's make yours remarkable.</em>
+        </h2>
+        <p>
+          From the first idea to the final finishing touch, we bring clarity,
+          creativity, and care to every interior. Discover thoughtful design
+          solutions made for the way you live.
+        </p>
+        <div className="services-intro-ornament"><span>✳</span></div>
+      </section>
+      <section className="services-list-section" id="our-services">
+        <div className="services-section-heading">
+          <div>
+            <p className="services-eyebrow">WHAT WE DO</p>
+            <h2>
+              Our <em>services.</em>
+            </h2>
+          </div>
+          <p>
+            Six ways to transform your space into something personal,
+            practical, and unforgettable.
+          </p>
+        </div>
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <article className="services-card" key={service.number}>
+              <div className="services-card-image-wrap">
+                <img
+                  className="services-card-image"
+                  src={service.image}
+                  alt={service.alt}
+                  loading={index < 3 ? "eager" : "lazy"}
+                  onError={(event) => {
+                    event.currentTarget.onerror = null;
+                    event.currentTarget.src = fallbackImages[index];
+                  }}
+                />
+                <div className="services-card-image-shade" />
+                <span className="services-card-number">{service.number}</span>
+                <span className="services-card-image-arrow">↗</span>
+              </div>
+              <div className="services-card-content">
+                <p className="services-card-category">{service.category}</p>
+                <h3>{service.title}</h3>
+                <p className="services-card-description">
+                  {service.description}
+                </p>
+                <ul className="services-card-features">
+                  {service.features.map((feature) => (
+                    <li key={feature}>
+                      <span>✳</span> {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  to="/#contact"
+                  className="services-card-link"
+                  aria-label={`Enquire about ${service.title}`}
+                >
+                  DISCUSS YOUR PROJECT <span>↗</span>
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p className="services-image-disclaimer">
+          Images are illustrative design references and can be replaced with
+          original SB Interiors project photographs.
+        </p>
+      </section>
+      <section className="services-gallery-section">
+        <div className="services-section-heading">
+          <div>
+            <p className="services-eyebrow">A STUDY IN DETAILS</p>
+            <h2>
+              Spaces that <em>speak.</em>
+            </h2>
+          </div>
+          <p>
+            A glimpse into the moods, materials, and moments that inspire
+            beautiful interiors.
+          </p>
+        </div>
+        <div className="services-gallery">
+          {gallery.map((item, index) => (
+            <article
+              className={`services-gallery-item gallery-item-${index + 1}`}
+              key={item.title}
+            >
+              <img src={item.image} alt={item.title} loading="lazy" />
+              <div className="services-gallery-overlay">
+                <span>{item.category}</span>
+                <h3>{item.title}</h3>
+                <span className="services-gallery-arrow">↗</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="services-final-cta">
+        <div className="services-cta-glow" />
+        <p className="services-eyebrow">YOUR NEXT CHAPTER</p>
+        <h2>
+          Have a space in <em>mind?</em>
+        </h2>
+        <p>
+          Tell us your vision. Let's create something meaningful together.
+        </p>
+        <Link to="/#contact" className="services-button services-button-gold">
+          Let's Create Together <span>↗</span>
+        </Link>
+        <div className="services-cta-monogram">SB</div>
+      </section>
+      <footer className="services-footer">
+        <Link to="/" className="services-footer-brand">
+          <img src="/sb-logo.jpeg" alt="SB Interiors logo" />
+          <span className="services-footer-brand-text">
+            <strong>SB INTERIORS</strong>
+            <small>DESIGN YOUR DREAM</small>
+          </span>
+        </Link>
+        <p>Thoughtful spaces. Timeless living.</p>
+        <Link to="/" className="services-back-home">BACK TO HOME ↑</Link>
+      </footer>
+    </main>
+  );
+}
+
+
+
+

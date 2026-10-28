@@ -1,0 +1,238 @@
+﻿import { useState } from "react";
+import { Link } from "react-router-dom";
+import { services } from "../data/services";
+import "./Services.css";
+const gallery = [
+  {
+    title: "The Art of Living",
+    category: "RESIDENTIAL",
+    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85",
+  },
+  {
+    title: "Quiet Luxury",
+    category: "BEDROOM DESIGN",
+    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=85",
+  },
+  {
+    title: "A Modern Perspective",
+    category: "LIVING SPACES",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+  },
+  {
+    title: "Details That Matter",
+    category: "KITCHEN DESIGN",
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85",
+  },
+];
+const process = [
+  {
+    number: "01",
+    title: "Discover",
+    description: "We listen to your ideas, understand your lifestyle, and discuss your vision, needs, and budget.",
+  },
+  {
+    number: "02",
+    title: "Plan",
+    description: "We explore layouts, space planning, and concepts to create a thoughtful design direction.",
+  },
+  {
+    number: "03",
+    title: "Design",
+    description: "Materials, colours, lighting, and finishes come together in a cohesive design plan.",
+  },
+  {
+    number: "04",
+    title: "Create",
+    description: "We coordinate the execution process and work towards bringing the approved design to life.",
+  },
+  {
+    number: "05",
+    title: "Handover",
+    description: "We review the finished space and work through the final details with you.",
+  },
+];
+export default function Services() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    service: "Residential Interior Design",
+    message: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormData((previous) => ({ ...previous, [name]: value }));
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
+    setSubmitted(true);
+  }
+  return (
+    <main className="services-page">
+      <div className="services-topline">
+        THOUGHTFUL DESIGN <span>·</span> TIMELESS SPACES <span>·</span> INSPIRED LIVING
+      </div>
+      <header className="services-header">
+        <Link className="services-brand" to="/">
+          <span className="services-brand-mark">SB</span>
+          <span>
+            <strong>SB INTERIORS</strong>
+            <small>DESIGN STUDIO</small>
+          </span>
+        </Link>
+        <nav className="services-nav" aria-label="Main navigation">
+          <Link to="/">Home</Link>
+          <a href="#our-services">Services</a>
+          <a href="#our-process">Our Process</a>
+          <a href="#project-enquiry" className="services-nav-cta">Discuss Your Project ↗</a>
+        </nav>
+      </header>
+      <section className="services-hero">
+        <div className="services-hero-copy">
+          <p className="services-eyebrow"><span /> OUR EXPERTISE</p>
+          <h1>Spaces made<br />to <em>feel like you.</em></h1>
+          <p className="services-hero-description">
+            Considered interiors. Meaningful details. Beautifully functional
+            spaces designed around the way you live and work.
+          </p>
+          <div className="services-hero-actions">
+            <a href="#our-services" className="services-button services-button-gold">
+              Explore Our Services <span>↘</span>
+            </a>
+            <a href="#project-enquiry" className="services-text-link">
+              Start a conversation ↗
+            </a>
+          </div>
+          <div className="services-hero-note">
+            <span className="services-note-line" />
+            <span>DESIGN WITH PURPOSE. LIVE WITH EASE.</span>
+          </div>
+        </div>
+        <div className="services-hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=90"
+            alt="Elegant contemporary interior with warm natural finishes"
+          />
+          <div className="services-image-caption">
+            <span>01 / THE SIGNATURE COLLECTION</span>
+            <span>Form · Function · Feeling</span>
+          </div>
+          <div className="services-image-seal">S<span>B</span></div>
+        </div>
+        <div className="services-hero-index">S / 01</div>
+      </section>
+      <section className="services-intro">
+        <p className="services-eyebrow">DESIGNED AROUND YOU</p>
+        <h2>Every space has a story.<br /><em>Let's make yours remarkable.</em></h2>
+        <p>
+          From the first sketch to the final finishing touch, we bring clarity,
+          creativity, and care to every stage of your interior design journey.
+        </p>
+      </section>
+      <section className="services-list-section" id="our-services">
+        <div className="services-section-heading">
+          <div>
+            <p className="services-eyebrow">WHAT WE DO</p>
+            <h2>Our <em>services.</em></h2>
+          </div>
+          <p>Thoughtful solutions for every corner, every purpose, and every possibility.</p>
+        </div>
+        <div className="services-grid">
+          {services.map((service) => (
+            <article className="services-card" key={service.id}>
+              <div className="services-card-top">
+                <span className="services-card-number">{service.number}</span>
+                <span className="services-card-arrow">↗</span>
+              </div>
+              <h3>{service.title}</h3>
+              <p className="services-card-description">{service.description}</p>
+              <div className="services-card-divider" />
+              <p className="services-card-label">INCLUDES</p>
+              <ul>
+                {service.features.map((feature) => (
+                  <li key={feature}><span>✳</span>{feature}</li>
+                ))}
+              </ul>
+              <a
+                href="#project-enquiry"
+                className="services-card-link"
+                onClick={() =>
+                  setFormData((previous) => ({
+                    ...previous,
+                    service: service.title,
+                  }))
+                }
+              >
+                Enquire about this service <span>↗</span>
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="services-gallery-section">
+        <div className="services-section-heading">
+          <div>
+            <p className="services-eyebrow">A STUDY IN DETAILS</p>
+            <h2>Spaces that <em>speak.</em></h2>
+          </div>
+          <p>A glimpse into the moods, materials, and moments that inspire our work.</p>
+        </div>
+        <div className="services-gallery">
+          {gallery.map((item, index) => (
+            <article className={`services-gallery-item gallery-item-${index + 1}`} key={item.title}>
+              <img src={item.image} alt={item.title} loading="lazy" />
+              <div className="services-gallery-overlay">
+                <span>{item.category}</span>
+                <h3>{item.title}</h3>
+                <span className="services-gallery-arrow">↗</span>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p className="services-gallery-note">
+          Image references are illustrative. Project photographs can be replaced with SB Interiors' own completed work.
+        </p>
+      </section>
+      <section className="services-process-section" id="our-process">
+        <div className="services-process-heading">
+          <p className="services-eyebrow">FROM VISION TO REALITY</p>
+          <h2>Good design is a <em>journey.</em></h2>
+          <p>A considered, collaborative process that keeps your vision at the centre.</p>
+        </div>
+        <div className="services-process-grid">
+          {process.map((step) => (
+            <article className="services-process-step" key={step.number}>
+              <span className="services-process-number">{step.number}</span>
+              <div className="services-process-rule" />
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="services-final-cta">
+        <p className="services-eyebrow">YOUR NEXT CHAPTER</p>
+        <h2>Have a space in <em>mind?</em></h2>
+        <p>Tell us your vision. Let's create something meaningful together.</p>
+        <Link to="/#contact" className="services-button services-button-gold">
+          Discuss Your Project <span>↗</span>
+        </Link>
+      </section>      <footer className="services-footer">
+        <Link className="services-brand" to="/">
+          <span className="services-brand-mark">SB</span>
+          <span>
+            <strong>SB INTERIORS</strong>
+            <small>DESIGN STUDIO</small>
+          </span>
+        </Link>
+        <p>Thoughtful design. Timeless spaces. Inspired living.</p>
+        <a href="#top" onClick={(event) => {
+          event.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}>BACK TO TOP ↑</a>
+      </footer>
+    </main>
+  );
+}
+

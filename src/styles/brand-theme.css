@@ -1,0 +1,58 @@
+﻿:root {
+  --obsidian: #050505;
+  --antique-gold: #C99A27;
+  --background: #050505;
+  --surface: #050505;
+  --text: #C99A27;
+  --muted: #C99A27;
+  --accent: #C99A27;
+  --accent-dark: #C99A27;
+  --border: #C99A27;
+  --white: #050505;
+  --sb-black: #050505;
+  --sb-gold: #C99A27;
+  --sb-gold-light: #C99A27;
+}
+html,
+body,
+#root {
+  background: #050505 !important;
+  color: #C99A27 !important;
+}
+header,
+nav,
+footer,
+section,
+main,
+article,
+.card,
+[class*="card"],
+[class*="section"],
+[class*="footer"],
+[class*="header"],
+[class*="nav"] {
+  background-color: #050505;
+  color: #C99A27;
+}
+h1, h2, h3, h4, h5, h6,
+p, label, a {
+  color: #C99A27;
+}
+button,
+input[type="submit"] {
+  background: #C99A27;
+  color: #050505;
+  border-color: #C99A27;
+}
+input,
+textarea,
+select {
+  background: #050505;
+  color: #C99A27;
+  border-color: #C99A27;
+}
+* {
+  scrollbar-color: #C99A27 #050505;
+}
+
+/* SB PREMIUM NAVBAR ENHANCEMENTS */

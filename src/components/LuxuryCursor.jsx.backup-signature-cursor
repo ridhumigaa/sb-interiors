@@ -1,0 +1,33 @@
+﻿import { useEffect } from "react";
+import "./LuxuryCursor.css";
+export default function LuxuryCursor() {
+  useEffect(() => {
+    const finePointer = window.matchMedia("(pointer: fine)").matches;
+    if (!finePointer) return;
+    const cursor = document.querySelector(".luxury-cursor");
+    if (!cursor) return;
+    const move = (event) => {
+      cursor.style.transform =
+        `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
+    };
+    const hoverOn = (event) => {
+      if (event.target.closest("a, button, input, textarea, select, [role='button']")) {
+        cursor.classList.add("is-hovering");
+      }
+    };
+    const hoverOff = () => cursor.classList.remove("is-hovering");
+    window.addEventListener("mousemove", move);
+    document.addEventListener("mouseover", hoverOn);
+    document.addEventListener("mouseout", hoverOff);
+    return () => {
+      window.removeEventListener("mousemove", move);
+      document.removeEventListener("mouseover", hoverOn);
+      document.removeEventListener("mouseout", hoverOff);
+    };
+  }, []);
+  return (
+    <div className="luxury-cursor" aria-hidden="true">
+      <span />
+    </div>
+  );
+}
